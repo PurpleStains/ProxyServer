@@ -8,12 +8,12 @@ const getMeteors = async (date, showCount, showDangeours) => {
 const deserializeAsteroids = (data, showCount, showDangeours) => {
     let result = {};
     let meteors = [];
-    let wereDangegrous = false;
+    let wereDangerous = false;
     
     for (const date in data.near_earth_objects){
         data.near_earth_objects[date].forEach(obj => {
-            if (!wereDangegrous && obj.is_potentially_hazardous_asteroid){
-                wereDangegrous = true;
+            if (!wereDangerous && obj.is_potentially_hazardous_asteroid){
+                wereDangerous = true;
             }
 
             const closeApproach = obj.close_approach_data?.[0];
@@ -30,7 +30,7 @@ const deserializeAsteroids = (data, showCount, showDangeours) => {
     
     if (showCount) result.count = meteors.length;
     
-    if (showDangeours) result.wereDangegrous = wereDangegrous;
+    if (showDangeours) result.wereDangerous = wereDangerous;
     
     result.meteors = meteors;
     return result;

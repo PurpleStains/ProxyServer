@@ -1,0 +1,32 @@
+{% block content %}
+{% if response.count %}
+<span>Count: {{response.count}}</span> <br />
+{% endif%}
+
+{% if response.wereDangerous %}
+<span>Were danegour meteors: {{response.wereDangerous}}</span> <br />
+{% endif%}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Diameter Min</th>
+        <th>Diameter Max</th>
+        <th>Potentially Hazardous</th>
+        <th>Close Approach Date</th>
+        <th>Relative Velocity KmpH</th>
+    </tr>
+    {% for meteor in response.meteors %}
+    <tr>
+        <td>{{ meteor.id }}</td>
+        <td>{{ meteor.name }}</td>
+        <td>{{ meteor.diameter.estimated_diameter_min }}</td>
+        <td>{{ meteor.diameter.estimated_diameter_max }}</td>
+        <td>{{ meteor.is_potentially_hazardous_asteroid }}</td>
+        <td>{{ meteor.close_approach_date_full }}</td>
+        <td>{{ meteor.relative_velocity.kilometers_per_hour }}</td>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock%}

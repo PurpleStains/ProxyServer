@@ -4,11 +4,9 @@ const fetchMeteors = async (req, res) => {
     try {
         const query = parameters(req.query);
 
-        const meteorsResponse = await getMeteors(query.date, query.count, query.wereDangerousMeteors);
+        return await getMeteors(query.date, query.count, query.wereDangerousMeteors);
 
-        res.send(meteorsResponse);
     } catch (error) {
-        console.log(error);
     }
 }
 
