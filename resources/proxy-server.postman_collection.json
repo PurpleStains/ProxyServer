@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "cb039f17-7597-4857-926c-b7a9d10e246c",
+		"name": "proxy-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16428511"
+	},
+	"item": [
+		{
+			"name": "Meteors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/meteors?startDate=2024-10-14&endDate=2024-10-14&count=true&wereDangerousMeteors=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"meteors"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2024-10-14"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-10-14"
+						},
+						{
+							"key": "count",
+							"value": "true"
+						},
+						{
+							"key": "wereDangerousMeteors",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Api/Meteors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/meteors?startDate=2024-10-14&endDate=2024-10-14&count=true&wereDangerousMeteors=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"meteors"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2024-10-14"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-10-14"
+						},
+						{
+							"key": "count",
+							"value": "true"
+						},
+						{
+							"key": "wereDangerousMeteors",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

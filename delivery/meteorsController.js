@@ -1,14 +1,21 @@
+import express from 'express'
 import getMeteors from "../useCases/meteors.js";
 
-const fetchMeteors = async (req, res) => {
-    try {
-        const query = parameters(req.query);
+const router = express.Router();
 
-        return await getMeteors(query.date, query.count, query.wereDangerousMeteors);
+router.get('/meteors', async (req, res) => { 
+    const { date, count, wereDangerousMeteors } = parameters(req.query);
+    const result = await getMeteors(date, count, wereDangerousMeteors);
 
-    } catch (error) {
-    }
-}
+    res.send(result);
+});
+
+router.get('/api/meteors', async (req, res) => { 
+    const { date, count, wereDangerousMeteors } = parameters(req.query);
+    const result = await getMeteors(date, count, wereDangerousMeteors);
+
+    res.render('meteors.html', { response: result });
+});
 
 const parameters = (data) => {
     return {
@@ -21,4 +28,4 @@ const parameters = (data) => {
     }
 }
 
-export default fetchMeteors
+export default router;
