@@ -1,16 +1,18 @@
 import express from 'express'
 import getMeteors from "../useCases/meteors.js";
+import { meteorsSchema } from '../validation/meteorsSchema.js';
+import { validate } from '../validation/validator.js'
 
 const router = express.Router();
 
-router.get('/meteors', async (req, res) => { 
+router.get('/meteors', validate(meteorsSchema), async (req, res) => { 
     const { date, count, wereDangerousMeteors } = parameters(req.query);
     const result = await getMeteors(date, count, wereDangerousMeteors);
 
     res.send(result);
 });
 
-router.get('/api/meteors', async (req, res) => { 
+router.get('/api/meteors', validate(meteorsSchema), async (req, res) => { 
     const { date, count, wereDangerousMeteors } = parameters(req.query);
     const result = await getMeteors(date, count, wereDangerousMeteors);
 
